@@ -8,14 +8,16 @@ void ft_print_alphabet(void)
 	write(1, "abcdefghijklmnopqrstuvwxyz\n",27);
 }
 
-//ex02:
-void ft_print_numbers(void)
+//ex02: skiped
+//ex03
+void	ft_print_numbers(void)
 {
-	write(1, "0123456789\n", 11);
+	write(1, "0123456789", 10);
 }
 
+
 //ex03:
-void ft_is_negative(int n)
+void	ft_is_negative(int n)
 {
 	if(n < 0)
 	{
@@ -29,15 +31,18 @@ void ft_is_negative(int n)
 }
 
 //ex04:
-void ft_print_combo(void)
+void	ft_print_combo(void)
 {
-	int a
+	int a;
+	
+	a = '1';
+}
 
 int main() 
 {
 	//ft_print_alphabet();
 	//ft_print_numbers();
-	ft_is_negative(-4);
+	ft_print_numbers();
 }
 
 
