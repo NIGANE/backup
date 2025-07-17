@@ -4,4 +4,3 @@ if [ "$FT_USER" = "bocal" ]; then
 elif [ "$FT_USER" = "daemon" ]; then
     id -nG "$FT_USER" | tr ' ' ',' 
 fi
-
