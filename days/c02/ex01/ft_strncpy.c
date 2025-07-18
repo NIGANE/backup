@@ -1,34 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_rev_int_tab.c                                   :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amerkht <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/18 11:59:56 by amerkht           #+#    #+#             */
-/*   Updated: 2025/07/18 12:00:06 by amerkht          ###   ########.fr       */
+/*   Created: 2025/07/18 13:25:20 by amerkht           #+#    #+#             */
+/*   Updated: 2025/07/18 13:42:00 by amerkht          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include <stdio.h>
-
-void	ft_swap(int *a, int *b)
+char	*ft_strncpy(char *dest, char *src, unsigned int n)
 {
-	int	le;
-
-	le = *a;
-	*a = *b;
-	*b = le;
-}
-
-void	ft_rev_int_tab(int *tab, int size)
-{
-	int	i;
+	unsigned int	i;
 
 	i = 0;
-	while (i < size / 2)
+	while (src[i] != '\0' && i < n )
 	{
-		ft_swap(&tab[i], &tab[size - 1 - i]);
+		dest[i] = src[i];
 		i++;
 	}
+	while (i < n)
+	{
+		dest[i] = '\0';
+		i++;
+	}
+	return (dest);
 }
+
+
+int	main()
+{
+	char* src = "hello world";
+	char dest[10];
+
+	ft_strncpy(dest, src, 10);
+	printf("===> %s", dest);
+}
+

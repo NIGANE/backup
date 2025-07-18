@@ -1,34 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_rev_int_tab.c                                   :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amerkht <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/18 11:59:56 by amerkht           #+#    #+#             */
-/*   Updated: 2025/07/18 12:00:06 by amerkht          ###   ########.fr       */
+/*   Created: 2025/07/18 13:14:22 by amerkht           #+#    #+#             */
+/*   Updated: 2025/07/18 13:23:48 by amerkht          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-
-void	ft_swap(int *a, int *b)
-{
-	int	le;
-
-	le = *a;
-	*a = *b;
-	*b = le;
-}
-
-void	ft_rev_int_tab(int *tab, int size)
+char	*ft_strcpy(char *dest, char *src)
 {
 	int	i;
 
 	i = 0;
-	while (i < size / 2)
+	while (src[i] != '\0')
 	{
-		ft_swap(&tab[i], &tab[size - 1 - i]);
+		dest[i] = src[i];
 		i++;
 	}
+	dest[i] = '\0';
+	return (dest);
 }
