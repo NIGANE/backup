@@ -1,32 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_numeric.c                                :+:      :+:    :+:   */
+/*   ft_str_is_lowercase.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amerkht <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/19 11:20:53 by amerkht           #+#    #+#             */
-/*   Updated: 2025/07/19 11:21:29 by amerkht          ###   ########.fr       */
+/*   Created: 2025/07/19 11:35:30 by amerkht           #+#    #+#             */
+/*   Updated: 2025/07/19 11:35:36 by amerkht          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	is_num(char le)
-{
-	if (le >= '0' && le <= '9')
-	{
-		return (1);
-	}
-	return (0);
-}
-
-int	ft_str_is_numeric(char* str)
+int	ft_str_is_lowercase(char* str)
 {
 	int	i;
 
 	i = 0;
 	while (str[i] != '\0')
 	{
-		if (!is_num(str[i]))
+		if (!(str[i] >= 'a' && str[i] <= 'z'))
 		{
 			return (0);
 		}

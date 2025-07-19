@@ -1,36 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_numeric.c                                :+:      :+:    :+:   */
+/*   ft_strupcase.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amerkht <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/19 11:20:53 by amerkht           #+#    #+#             */
-/*   Updated: 2025/07/19 11:21:29 by amerkht          ###   ########.fr       */
+/*   Created: 2025/07/19 11:51:00 by amerkht           #+#    #+#             */
+/*   Updated: 2025/07/19 11:51:02 by amerkht          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	is_num(char le)
+int is_lower(char a)
 {
-	if (le >= '0' && le <= '9')
-	{
-		return (1);
-	}
-	return (0);
+    if (a >= 'a' && a <= 'z')
+    {
+        return (1);
+    }
+    return (0);
 }
 
-int	ft_str_is_numeric(char* str)
+char    *ft_strupcase(char* str)
 {
-	int	i;
+    int i;
 
-	i = 0;
-	while (str[i] != '\0')
-	{
-		if (!is_num(str[i]))
-		{
-			return (0);
-		}
-		i++;
-	}
-	return (1);
+    i = 0;
+    while (str[i] != '\0')
+    {
+        if (is_lower(str[i]))
+        {
+            str[i] = str[i] - ('a' - 'A');
+        }
+        i++;
+    }
+    return (str);
 }
