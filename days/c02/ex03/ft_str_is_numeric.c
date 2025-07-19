@@ -1,21 +1,22 @@
 
-int	is_char(char a)
+
+int	is_num(char le)
 {
-	if(a >= 'a' && a <= 'z')
+	if (le >= '0' && le <= '9')
 	{
 		return (1);
 	}
 	return (0);
 }
 
-int	ft_str_is_alpha(char *str)
+int	ft_str_is_numeric(char* str)
 {
 	int	i;
 
 	i = 0;
 	while (str[i] != '\0')
 	{
-		if(!is_char(str[i]))
+		if (!is_num(str[i]))
 		{
 			return (0);
 		}
