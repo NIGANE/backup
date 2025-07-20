@@ -6,11 +6,9 @@
 /*   By: agouskar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/20 12:37:42 by agouskar          #+#    #+#             */
-/*   Updated: 2025/07/20 12:59:48 by agouskar         ###   ########.fr       */
+/*   Updated: 2025/07/20 21:28:15 by amerkht          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdio.h>
 
 char	*to_lower(char	*str)
 {
@@ -19,13 +17,13 @@ char	*to_lower(char	*str)
 	i = 0;
 	while (str[i] < '\0')
 	{
-		if(str[i] >= 'A' && str[i] <= 'Z')
+		if (str[i] >= 'A' && str[i] <= 'Z')
 		{
 			str[i] = str[i] + 32;
 		}
 		i++;
 	}
-	return str;
+	return (str);
 }
 
 char	*ft_strcapitalize(char *str)
@@ -53,11 +51,4 @@ char	*ft_strcapitalize(char *str)
 		i++;
 	}
 	return (str);
-}
-
-int	main()
-{
-	char	str[] = "hi, how are you? 42words forty-two; fifty+and+one";
-
-	printf(" => %s\n", ft_strcapitalize(str));
 }
