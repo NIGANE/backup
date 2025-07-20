@@ -1,12 +1,63 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strcapitalize.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: agouskar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/20 12:37:42 by agouskar          #+#    #+#             */
+/*   Updated: 2025/07/20 12:59:48 by agouskar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void	to_lower(char* str)
+#include <stdio.h>
+
+char	*to_lower(char	*str)
 {
-	while (*str)
+	int	i;
+
+	i = 0;
+	while (str[i] < '\0')
 	{
-		*str = *str + 32;
-		str++;
+		if(str[i] >= 'A' && str[i] <= 'Z')
+		{
+			str[i] = str[i] + 32;
+		}
+		i++;
 	}
+	return str;
 }
 
+char	*ft_strcapitalize(char *str)
+{
+	int	i;
+	int	x;
 
+	to_lower(str);
+	x = 1;
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] >= 'a' && str[i] <= 'z')
+		{
+			if (x == 1)
+			{
+				str[i] = str[i] - 32;
+				x = 0;
+			}
+		}
+		else if (str[i] >= '0' && str[i] <= '9')
+			x = 0;
+		else
+			x = 1;
+		i++;
+	}
+	return (str);
+}
 
+int	main()
+{
+	char	str[] = "hi, how are you? 42words forty-two; fifty+and+one";
+
+	printf(" => %s\n", ft_strcapitalize(str));
+}
