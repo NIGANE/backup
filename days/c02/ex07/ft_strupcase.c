@@ -28,7 +28,7 @@ char	*ft_strupcase(char	*str)
 	{
 		if (is_lower(str[i]))
 		{
-			str[i] = str[i] - ('a' - 'A');
+			str[i] = str[i] - 32;
 		}
 		i++;
 	}

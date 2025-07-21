@@ -41,8 +41,8 @@ char	*ft_strcapitalize(char *str)
 			if (x == 1)
 			{
 				str[i] = str[i] - 32;
-				x = 0;
 			}
+			x = 0;
 		}
 		else if (str[i] >= '0' && str[i] <= '9')
 			x = 0;

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlowercase.c                                  :+:      :+:    :+:   */
+/*   ft_strlowcase.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amerkht <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -19,7 +19,7 @@ int	is_upper(char a)
 	return (0);
 }
 
-char	*ft_strupcase(char	*str)
+char	*ft_strlowcase(char *str)
 {
 	int	i;
 
@@ -28,7 +28,7 @@ char	*ft_strupcase(char	*str)
 	{
 		if (is_upper(str[i]))
 		{
-			str[i] = str[i] + ('a' - 'A');
+			str[i] = str[i] + 32;
 		}
 		i++;
 	}
