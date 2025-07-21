@@ -6,13 +6,13 @@
 /*   By: amerkht <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 11:20:28 by amerkht           #+#    #+#             */
-/*   Updated: 2025/07/19 11:27:03 by amerkht          ###   ########.fr       */
+/*   Updated: 2025/07/20 23:31:56 by amerkht          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	is_char(char a)
 {
-	if((a >= 'a' && a <= 'z') || (a >= 'A' && a <= 'Z'))
+	if ((a >= 'a' && a <= 'z') || (a >= 'A' && a <= 'Z'))
 	{
 		return (1);
 	}
@@ -26,7 +26,7 @@ int	ft_str_is_alpha(char *str)
 	i = 0;
 	while (str[i] != '\0')
 	{
-		if(!is_char(str[i]))
+		if (!is_char(str[i]))
 		{
 			return (0);
 		}

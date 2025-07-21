@@ -6,31 +6,31 @@
 /*   By: amerkht <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 11:51:00 by amerkht           #+#    #+#             */
-/*   Updated: 2025/07/19 11:51:02 by amerkht          ###   ########.fr       */
+/*   Updated: 2025/07/20 23:38:24 by amerkht          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int is_lower(char a)
+int	is_lower(char a)
 {
-    if (a >= 'a' && a <= 'z')
-    {
-        return (1);
-    }
-    return (0);
+	if (a >= 'a' && a <= 'z')
+	{
+		return (1);
+	}
+	return (0);
 }
 
-char    *ft_strupcase(char* str)
+char	*ft_strupcase(char	*str)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    while (str[i] != '\0')
-    {
-        if (is_lower(str[i]))
-        {
-            str[i] = str[i] - ('a' - 'A');
-        }
-        i++;
-    }
-    return (str);
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if (is_lower(str[i]))
+		{
+			str[i] = str[i] - ('a' - 'A');
+		}
+		i++;
+	}
+	return (str);
 }

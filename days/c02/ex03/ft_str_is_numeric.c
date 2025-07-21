@@ -6,7 +6,7 @@
 /*   By: amerkht <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 11:20:53 by amerkht           #+#    #+#             */
-/*   Updated: 2025/07/19 11:21:29 by amerkht          ###   ########.fr       */
+/*   Updated: 2025/07/20 23:32:48 by amerkht          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	is_num(char le)
 	return (0);
 }
 
-int	ft_str_is_numeric(char* str)
+int	ft_str_is_numeric(char *str)
 {
 	int	i;
 

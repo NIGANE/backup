@@ -6,13 +6,13 @@
 /*   By: amerkht <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 11:36:26 by amerkht           #+#    #+#             */
-/*   Updated: 2025/07/19 11:36:28 by amerkht          ###   ########.fr       */
+/*   Updated: 2025/07/20 23:34:42 by amerkht          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_str_is_uppercase(char* str)
+int	ft_str_is_uppercase(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i] != '\0')
