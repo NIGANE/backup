@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ne_strlen(char	*str)
+unsigned int	ne_strlen(char *str)
 {
-	int	i;
+	unsigned int	i;
 
 	i = 0;
 	while (str[i] != '\0')
@@ -26,18 +26,19 @@ unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 	unsigned int	ds_len;
 	unsigned int	i;
 
+	i = 0;
 	sr_len = ne_strlen(src);
 	ds_len = ne_strlen(dest);
-	if (ds_len > size)
-		return (size + sr_len);
-	i = 0;
-	while (i < size - 1 - ds_len && src[i] != '\0')
+	if (size != 0)
 	{
-		dest[ds_len + i] = src[i];
-		i++;
+		while (i < size - 1 - ds_len && src[i] != '\0')
+		{
+			dest[ds_len + i] = src[i];
+			i++;
+		}
+		dest[ds_len + i] = '\0';
 	}
-	dest[ds_len + i] = '\0';
-	printf("src : %d\n", sr_len);
-	printf("src : %d\n", ds_len);
+	if (ds_len >= size)
+		return (size + sr_len);
 	return (sr_len + ds_len);
 }
