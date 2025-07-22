@@ -1,36 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amerkht <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/22 13:24:21 by amerkht           #+#    #+#             */
-/*   Updated: 2025/07/22 15:04:33 by amerkht          ###   ########.fr       */
+/*   Created: 2025/07/22 15:05:38 by amerkht           #+#    #+#             */
+/*   Updated: 2025/07/22 15:18:59 by amerkht          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_putchar(char a)
+int	ft_atoi(char	*str)
 {
-	write(1, &a, 1);
-}
+	int	i;
+	int	sign;
+	int	re;
 
-void	ft_putnbr(int nb)
-{
-	if (nb == -2147483648)
+	i = 0;
+	sign = 1;
+	while (str[i] != '\0')
 	{
-		write(1, "-2", 2);
-		ft_putnbr(147483648);
-		return ;
+		if(str[i] == '-')
+			sign *= -1;
+		else if (str[i] == ' ')
+			sign = 1;
+		else if (str[i] >= '0' && str[i] <= '9')
+		{
+			while (str[i] >= '0' && str[i] <= '9')
+			{
+				re = (re * 10) + (str[i++] - '0');
+			}
+			return re * sign;
+		}
+		i++;
 	}
-	if (nb < 0)
-	{
-		ft_putchar('-');
-		nb *= -1;
-	}
-	if (nb >= 10)
-		ft_putnbr(nb / 10);
-	ft_putchar(nb % 10 + '0');
+	return 0;
 }
