@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amerkht <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/21 16:29:27 by amerkht           #+#    #+#             */
-/*   Updated: 2025/07/21 16:29:30 by amerkht          ###   ########.fr       */
+/*   Created: 2025/07/21 18:32:45 by amerkht           #+#    #+#             */
+/*   Updated: 2025/07/21 18:44:08 by amerkht          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strcmp(char *s1, char *s2)
+char	*ft_strncat(char *dest, char *src, unsigned int nb)
 {
-	int	i;
+	unsigned int	i;
+	unsigned int	j;
 
 	i = 0;
-	while (s1[i] != '\0' && s2[i] != '\0')
-	{
-		if (s1[i] != s2[i])
-			return (s1[i] - s2[i]);
+	j = 1;
+	while (dest[i] != '\0')
 		i++;
+	while (*src && j <= nb)
+	{
+		dest[i] = *src;
+		i++;
+		src++;
+		j++;
 	}
-	if (s1[i] != '\0')
-		return (s1[i]);
-	if (s2[i] != '\0')
-		return (-s2[i]);
-	return (0);
+	dest[i] = '\0';
+	return (dest);
 }

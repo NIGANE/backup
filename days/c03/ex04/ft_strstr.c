@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amerkht <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/21 16:29:27 by amerkht           #+#    #+#             */
-/*   Updated: 2025/07/21 16:29:30 by amerkht          ###   ########.fr       */
+/*   Created: 2025/07/21 18:44:52 by amerkht           #+#    #+#             */
+/*   Updated: 2025/07/21 18:54:49 by amerkht          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strcmp(char *s1, char *s2)
+char	*ft_strstr(char *str, char *to_find)
 {
 	int	i;
+	int	j;
 
 	i = 0;
-	while (s1[i] != '\0' && s2[i] != '\0')
+	while (str[i] != '\0')
 	{
-		if (s1[i] != s2[i])
-			return (s1[i] - s2[i]);
+		j = 0;
+		if (str[i] == to_find[j])
+		{
+			while (str[i + j] == to_find[j])
+				j++;
+			if (to_find[j] == '\0')
+				return (&str[i]);
+		}
 		i++;
 	}
-	if (s1[i] != '\0')
-		return (s1[i]);
-	if (s2[i] != '\0')
-		return (-s2[i]);
-	return (0);
+	return (NULL);
 }
