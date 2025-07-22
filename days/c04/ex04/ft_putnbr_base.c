@@ -1,38 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amerkht <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/22 15:05:38 by amerkht           #+#    #+#             */
-/*   Updated: 2025/07/22 21:05:16 by amerkht          ###   ########.fr       */
+/*   Created: 2025/07/22 21:25:05 by amerkht           #+#    #+#             */
+/*   Updated: 2025/07/22 21:32:07 by amerkht          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(char	*str)
+#include <unistd.h>
+
+int	is_valid(char	*base)
+{
+	if (ft_strlen(base) <= 1)
+		return (0);
+
+}
+
+void	ft_putnbr_base(int nbr, char *base)
 {
 	int	i;
-	int	sign;
-	int	re;
+	int	base_len;
 
-	i = 0;
-	sign = 1;
-	while (str[i] != '\0')
+	if (is_valid(base))
 	{
-		if (str[i] == '-')
-			sign *= -1;
-		else if (str[i] == ' ')
-			sign = 1;
-		else if (str[i] >= '0' && str[i] <= '9')
-		{
-			while (str[i] >= '0' && str[i] <= '9')
-			{
-				re = (re * 10) + (str[i++] - '0');
-			}
-			return (re * sign);
-		}
-		i++;
 	}
-	return (0);
+
 }
