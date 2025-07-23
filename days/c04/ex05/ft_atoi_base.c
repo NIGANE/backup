@@ -6,11 +6,10 @@
 /*   By: amerkht <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 07:32:23 by amerkht           #+#    #+#             */
-/*   Updated: 2025/07/23 13:00:17 by amerkht          ###   ########.fr       */
+/*   Updated: 2025/07/23 16:12:58 by amerkht          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 int	is_valid(char	*base)
 {
 	int	i;
@@ -30,7 +29,7 @@ int	is_valid(char	*base)
 		}
 		i++;
 	}
-	if(i <= 1)
+	if (i <= 1)
 		return (0);
 	return (1);
 }
@@ -38,28 +37,14 @@ int	is_valid(char	*base)
 int	in_string(char a, char	*src)
 {
 	int	i;
-	
+
 	i = 0;
 	while (src[i] != '\0')
 	{
 		if (src[i++] == a)
 			return (1);
 	}
-	return 0;
-}
-
-int	ft_pow(int nb, int oss)
-{
-	int	i;
-	int	re;
-
-	i = 1;
-	re = 1;
-	while (i++ < oss)
-	{
-		re *= nb;
-	}
-	return re;
+	return (0);
 }
 
 int	index_of(char a, char *src)
@@ -67,13 +52,13 @@ int	index_of(char a, char *src)
 	int	i;
 
 	i = 0;
-	while(src[i] != '\0')
+	while (src[i] != '\0')
 	{
 		if (src[i] == a)
-			return i;
+			return (i);
 		i++;
 	}
-	return -1;
+	return (-1);
 }
 
 int	to_decimal(char *str, int len, char *base)
@@ -81,19 +66,24 @@ int	to_decimal(char *str, int len, char *base)
 	int	i;
 	int	re;
 	int	base_len;
+	int	pow;
+	int	j;
 
 	i = 0;
 	re = 0;
 	base_len = 0;
 	while (base[base_len] != '\0')
 		base_len++;
-	while(i < len)
+	while (i < len)
 	{
-		printf("%d(%d) :%d +",base_len, len - i - 1, ft_pow(base_len, len - i));
-		re = (re + index_of(str[i], base) * ft_pow(base_len, len - i));
+		pow = 1;
+		j = 1;
+		while (j++ < len - i)
+			pow *= base_len;
+		re += index_of(str[i], base) * pow;
 		i++;
 	}
-	return re;
+	return (re);
 }
 
 int	ft_atoi_base(char *str, char *base)
@@ -115,19 +105,12 @@ int	ft_atoi_base(char *str, char *base)
 				sign = 1;
 			else if (in_string(str[i], base))
 			{
-				while(in_string(str[i++], base))
+				while (in_string(str[i++], base))
 					nb++;
-				return (to_decimal(str + i, nb, base) * sign);
+				return (to_decimal(&str[i - nb - 1], nb, base) * sign);
 			}
 			i++;
 		}
 	}
-	return 0;
-}
-int	main(void)
-{
-	char	*base = "0123456789abcdef";
-	char	*str = "a7fe";
-	//ft_atoi_base(str, base);
-	printf("string: %s\nbase: %s\nreturn: %d\n", str, base, ft_atoi_base(str, base));
+	return (0);
 }
