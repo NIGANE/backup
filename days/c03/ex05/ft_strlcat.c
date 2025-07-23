@@ -31,14 +31,15 @@ unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 	ds_len = ne_strlen(dest);
 	if (size != 0)
 	{
-		while (i < size - 1 - ds_len && src[i] != '\0')
+		while (src[i] != '\0' && i + ds_len < size - 1)
 		{
 			dest[ds_len + i] = src[i];
 			i++;
 		}
 		dest[ds_len + i] = '\0';
 	}
-	if (ds_len >= size)
+	if (ds_len < size)
+		return (sr_len + ds_len);
+	else
 		return (size + sr_len);
-	return (sr_len + ds_len);
 }
