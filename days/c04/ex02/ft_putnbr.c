@@ -35,3 +35,4 @@ void	ft_putnbr(int nb)
 		ft_putnbr(nb / 10);
 	ft_putchar(nb % 10 + '0');
 
+}

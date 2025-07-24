@@ -75,11 +75,6 @@ void	ft_putnbr_base(int nbr, char *base)
 	nb = (long) nbr;
 	if (is_valid(base))
 	{
-		print_base(nbr, base);
+		print_base(nb, base);
 	}
-}
-
-int	main(void)
-{
-	ft_putnbr_base(-2147483648, "0123456789");
 }
