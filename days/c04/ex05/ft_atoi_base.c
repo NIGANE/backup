@@ -6,7 +6,7 @@
 /*   By: amerkht <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 07:32:23 by amerkht           #+#    #+#             */
-/*   Updated: 2025/07/24 16:38:23 by amerkht          ###   ########.fr       */
+/*   Updated: 2025/07/24 16:14:31 by amerkht          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,9 @@ int	is_valid(char	*base)
 	i = 0;
 	while (base[i])
 	{
-		if (base[i] == '+' || base[i] == '-' || base[i] == ' ')
+		if (base[i] == '+' || base[i] == '-')
+			return (0);
+		if(base[i] == ' ' || (base >= 9 && base <= 13))
 			return (0);
 		j = i + 1;
 		while (base[j] != '\0')
@@ -91,20 +93,20 @@ int	ft_atoi_base(char *str, char *base)
 	int	i;
 	int	sign;
 	int	nb;
+	int	start;
 
 	sign = 1;
 	i = 0;
 	nb = 0;
+	start = 0;
 	if (is_valid(base))
 	{
 		while (str[i] != '\0')
 		{
-			if(str[i] == '-' || str[i] == '+' || str[i] >= '0' && str[i] >= 'z')
-				start = 1;
-			if (str[i] == '-')
-				sign *= -1;
-			else if (str[i] == ' ')
-				sign = 1;
+			if((str[i] == '-' || str[i] == '+') && start == 1)
+					return (0);
+			if(str[i] == '-')
+				sign =* -1;
 			else if (in_string(str[i], base))
 			{
 				while (in_string(str[i++], base))

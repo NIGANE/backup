@@ -6,7 +6,7 @@
 /*   By: amerkht <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 21:25:05 by amerkht           #+#    #+#             */
-/*   Updated: 2025/07/22 21:32:07 by amerkht          ###   ########.fr       */
+/*   Updated: 2025/07/24 15:22:20 by amerkht          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,10 @@ int	is_valid(char	*base)
 	return (1);
 }
 
-void	print_base(int nb, char *base)
+void	print_base(long nb, char *base)
 {
 	int	base_len;
-
+	
 	base_len = ft_strlen(base);
 	if (nb < 0)
 	{
@@ -70,8 +70,16 @@ void	print_base(int nb, char *base)
 
 void	ft_putnbr_base(int nbr, char *base)
 {
+	long	nb;
+
+	nb = (long) nbr;
 	if (is_valid(base))
 	{
 		print_base(nbr, base);
 	}
+}
+
+int	main(void)
+{
+	ft_putnbr_base(-2147483648, "0123456789");
 }
