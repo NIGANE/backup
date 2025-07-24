@@ -61,7 +61,7 @@ void	print_base(int nb, char *base)
 		ft_putchar('-');
 		nb *= -1;
 	}
-	if (nb > base_len)
+	if (nb >= base_len)
 	{
 		print_base(nb / base_len, base);
 	}
