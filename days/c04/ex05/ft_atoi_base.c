@@ -6,7 +6,7 @@
 /*   By: amerkht <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 07:32:23 by amerkht           #+#    #+#             */
-/*   Updated: 2025/07/23 16:12:58 by amerkht          ###   ########.fr       */
+/*   Updated: 2025/07/24 16:38:23 by amerkht          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,8 @@ int	ft_atoi_base(char *str, char *base)
 	{
 		while (str[i] != '\0')
 		{
+			if(str[i] == '-' || str[i] == '+' || str[i] >= '0' && str[i] >= 'z')
+				start = 1;
 			if (str[i] == '-')
 				sign *= -1;
 			else if (str[i] == ' ')
