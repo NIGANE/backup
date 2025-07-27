@@ -1,5 +1,3 @@
-
-
 int	ft_atoi(char *str)
 {
 	int	re;
@@ -9,7 +7,7 @@ int	ft_atoi(char *str)
 	i = 0;
 	re = 0;
 	sign = 1;
-	while((str[i] >= 9 && str[i] <= 13) || str[i] == ' ')
+	while ((str[i] >= 9 && str[i] <= 13) || str[i] == ' ')
 		i++;
 	while (str[i] == '+' || str[i] == '-')
 	{
@@ -18,7 +16,6 @@ int	ft_atoi(char *str)
 		i++;
 	}
 	while (str[i] >= '0' && str[i] <= '9')
-		re = re*10 + str[i++] - '0';
-
-	return re*sign;
+		re = re * 10 + str[i++] - '0';
+	return (re * sign);
 }

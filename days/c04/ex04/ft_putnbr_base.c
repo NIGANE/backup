@@ -54,7 +54,7 @@ int	is_valid(char	*base)
 void	print_base(long nb, char *base)
 {
 	int	base_len;
-	
+
 	base_len = ft_strlen(base);
 	if (nb < 0)
 	{
