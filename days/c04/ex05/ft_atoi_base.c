@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
+/*   ft_atoi_base.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amerkht <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 21:25:05 by amerkht           #+#    #+#             */
-/*   Updated: 2025/07/24 15:22:20 by amerkht          ###   ########.fr       */
+/*   Updated: 2025/07/28 11:09:32 by amerkht          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ int	index_of(char a, char *str)
 int	to_dicimal(char *str, int len, char *base)
 {
 	int		i;
-	long		re;
+	long	re;
 	int		base_len;
 	int		pow;
 	int		j;
@@ -92,7 +92,7 @@ int	to_dicimal(char *str, int len, char *base)
 
 int	ft_atoi_base(char *str, char *base)
 {
-	long		nb;
+	long	nb;
 	int		i;
 	int		len;
 	int		sign;

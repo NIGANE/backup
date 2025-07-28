@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_ten_queens_puzzle.c                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: amerkht <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/28 11:24:40 by amerkht           #+#    #+#             */
+/*   Updated: 2025/07/28 11:32:01 by amerkht          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <unistd.h>
 
 int	ft_abs(int a)
@@ -23,7 +35,7 @@ int	is_safe(int q, int p, int *arr)
 
 void	print_result(int *arr, int n)
 {
-	int	i;
+	int		i;
 	char	holder;
 
 	i = 0;
@@ -56,16 +68,4 @@ void	backtraking_solver(int q, int n, int *sol, int *arr)
 		}
 		i++;
 	}
-}
-
-int	ft_ten_queens_puzzle(void)
-{
-	int	n;
-	int	solutions;
-	int	arr[10];
-
-	solutions = 0;
-	n = 10;
-	backtraking_solver(0, n, &solutions, arr);
-	return (solutions);
 }
