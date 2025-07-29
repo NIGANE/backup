@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include <stdlib.h>
 
 int	ft_strlen(char *str)
@@ -45,6 +44,16 @@ char	*allcate_str(int size)
 	return (re);
 }
 
+char	*temp(void)
+{
+	char	*dest;
+
+	dest = malloc(1);
+	if (dest)
+		dest[0] = '\0';
+	return (dest);
+}
+
 char	*ft_strjoin(int size, char **strs, char *sep)
 {
 	char	*dest;
@@ -54,25 +63,22 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 
 	i = 0;
 	dest_index = 0;
+	if (size == 0)
+		return (temp());
 	dest = allcate_str(arr_str_len(strs, size) + ft_strlen(sep) * (size - 1));
-	while (i < size)
+	if (dest)
 	{
-		j = 0;
-		while (strs[i][j])
-			dest[dest_index++] = strs[i][j++];
-		i++;
-		j = 0;
-		while (sep[j] && i < size)
-			dest[dest_index++] = sep[j++];
+		while (i < size)
+		{
+			j = 0;
+			while (strs[i][j])
+				dest[dest_index++] = strs[i][j++];
+			i++;
+			j = 0;
+			while (sep[j] && i < size)
+				dest[dest_index++] = sep[j++];
+		}
+		dest[dest_index] = '\0';
 	}
-	dest[dest_index] = '\0';
 	return (dest);
-}
-
-int	main(void)
-{
-	char	*strs[23] = {"hello", "world", "achraf"};
-	char	*re = ft_strjoin(3, strs, "|");
-	printf("result : %s\n", re);
-	
 }
