@@ -6,22 +6,24 @@
 /*   By: amerkht <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 13:19:49 by amerkht           #+#    #+#             */
-/*   Updated: 2025/07/29 16:37:17 by amerkht          ###   ########.fr       */
+/*   Updated: 2025/07/29 18:09:53 by amerkht          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <stdlib.h>
+
 int	ft_strlen(char *str)
 {
 	int	i;
-	
+
 	i = 0;
-	while(str[i])
+	while (str[i])
 		i++;
 	return (i);
 }
-int	arr_str_len(char** arr, int size)
+
+int	arr_str_len(char **arr, int size)
 {
 	int	i;
 	int	total_size;
@@ -29,7 +31,7 @@ int	arr_str_len(char** arr, int size)
 	i = 0;
 	total_size = 0;
 	while (i < size)
-                total_size += ft_strlen(arr[i++]);
+		total_size += ft_strlen(arr[i++]);
 	return (total_size);
 }
 
@@ -37,26 +39,22 @@ char	*allcate_str(int size)
 {
 	char	*re;
 
-	re = (char*) malloc(sizeof(char) * (size + 1));
+	re = (char *) malloc(sizeof(char) * (size + 1));
 	if (!re)
 		return (NULL);
-	return re;
+	return (re);
 }
 
 char	*ft_strjoin(int size, char **strs, char *sep)
 {
 	char	*dest;
 	int		i;
-	int		total_size;
 	int		dest_index;
 	int		j;
 
-	i = total_size = dest_index = 0;
-	total_size = arr_str_len(strs, size) + ft_strlen(sep) * (size - 1);
-	dest = (char*) malloc(sizeof(char) * (total_size + 1));
-	if (!dest)
-		return (NULL);
 	i = 0;
+	dest_index = 0;
+	dest = allcate_str(arr_str_len(strs, size) + ft_strlen(sep) * (size - 1));
 	while (i < size)
 	{
 		j = 0;
@@ -68,7 +66,7 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 			dest[dest_index++] = sep[j++];
 	}
 	dest[dest_index] = '\0';
-	return dest;
+	return (dest);
 }
 
 int	main(void)
