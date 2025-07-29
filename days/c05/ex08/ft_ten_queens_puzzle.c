@@ -69,3 +69,15 @@ void	backtraking_solver(int q, int n, int *sol, int *arr)
 		i++;
 	}
 }
+
+int	ft_ten_queens_puzzle(void)
+{
+	int	n;
+	int	solutions;
+	int	arr[10];
+
+	solutions = 0;
+	n = 10;
+	backtraking_solver(0, n, &solutions, arr);
+	return (solutions);
+}
