@@ -1,29 +1,80 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: amerkht <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/29 13:19:49 by amerkht           #+#    #+#             */
+/*   Updated: 2025/07/29 16:37:17 by amerkht          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-
-char	**ft_strjoin(int size, char **strs, char *sep)
+#include <stdio.h>
+#include <stdlib.h>
+int	ft_strlen(char *str)
 {
 	int	i;
-	char	*dest;
-	int	nbr;
-	int	j;
+	
+	i = 0;
+	while(str[i])
+		i++;
+	return (i);
+}
+int	arr_str_len(char** arr, int size)
+{
+	int	i;
+	int	total_size;
 
-	nbr = 0;
-	i = 0
+	i = 0;
+	total_size = 0;
 	while (i < size)
-	{
-		j = 0;
-		while (strs[i][j++])
-			nbr++;
-	}
+                total_size += ft_strlen(arr[i++]);
+	return (total_size);
+}
 
-	printf("%d\n", nbr);
-	dest = malloc(sizeof(char) * (nbr + size - 1))
-	if (size <= 0)
-		return dest;
+char	*allcate_str(int size)
+{
+	char	*re;
+
+	re = (char*) malloc(sizeof(char) * (size + 1));
+	if (!re)
+		return (NULL);
+	return re;
+}
+
+char	*ft_strjoin(int size, char **strs, char *sep)
+{
+	char	*dest;
+	int		i;
+	int		total_size;
+	int		dest_index;
+	int		j;
+
+	i = total_size = dest_index = 0;
+	total_size = arr_str_len(strs, size) + ft_strlen(sep) * (size - 1);
+	dest = (char*) malloc(sizeof(char) * (total_size + 1));
+	if (!dest)
+		return (NULL);
 	i = 0;
 	while (i < size)
 	{
 		j = 0;
 		while (strs[i][j])
-		{
-			dest[i + j] = strs[i][j]
+			dest[dest_index++] = strs[i][j++];
+		i++;
+		j = 0;
+		while (sep[j] && i < size)
+			dest[dest_index++] = sep[j++];
+	}
+	dest[dest_index] = '\0';
+	return dest;
+}
+
+int	main(void)
+{
+	char	*strs[23] = {"hello", "world", "achraf"};
+	char	*re = ft_strjoin(3, strs, "|");
+	printf("result : %s\n", re);
+	
+}
