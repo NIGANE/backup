@@ -1,6 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_convert_base.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: amerkht <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/30 15:07:19 by amerkht           #+#    #+#             */
+/*   Updated: 2025/07/30 15:30:09 by amerkht          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#include <stdio.h>
-#include <unistd.h>
 #include <stdlib.h>
 
 int     ft_atoi_base(char *str, char *base);
@@ -79,33 +88,23 @@ void	ft_to_base(int	nbr, char *base, char *arr)
 	{
 		ft_to_base(nbr/ base_len, base, arr);
 	}
-	ft_put(arr, nbr % base_len + '0');
+	ft_put(arr, base[nbr % base_len]);
 }
 
-
+#include <stdio.h>
 char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 {
 	char	str[12];
-	int	atoi_ret;
+	long long	atoi_ret;
 
 	str[0] = '\0';
 	if (is_valid(base_to) && is_valid(base_from))
 	{
 		atoi_ret = ft_atoi_base(nbr, base_from);
-		printf("atoi: %d\n", atoi_ret);
+		printf("atoi: %lld\n", atoi_ret);
 		ft_to_base(atoi_ret, base_to, str);
 		return (ft_strdup(str));
 	}
 	else
 		return (NULL);
-}
-
-int	main(void)
-{
-#include <stdio.h>
-	char	*result;
-	result = ft_convert_base("-902767", "0123456789", "0123456789abcdef");
-	printf("return: %s", result);
-	//if (result)
-		//free(result);
 }

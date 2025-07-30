@@ -39,7 +39,7 @@ int     to_decimal(char *str, int len, char *base)
 #include <stdio.h>
 int	ft_atoi_base(char *str, char *base)
 {
-	long nb;
+	long long	 nb;
 	int		i;
 	int		len;
 	int		sign;
@@ -58,9 +58,6 @@ int	ft_atoi_base(char *str, char *base)
 	}
 	while (in_string(str[i + len], base) != -1)
 		len++;
-	int	j = 0;
-	while (str[j] != '\0')
-		printf("in_string? %d\n", in_string(str[j++], base));
 	nb = to_decimal(str + i, len, base);
 	return (nb * sign);
 }
