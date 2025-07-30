@@ -61,3 +61,7 @@ int	ft_atoi_base(char *str, char *base)
 	nb = to_decimal(str + i, len, base);
 	return (nb * sign);
 }
+
+int	main(void)
+{
+	printf

@@ -1,6 +1,7 @@
 
 #include <stdio.h>
 #include <unistd.h>
+#include <stdlib.h>
 
 int     ft_atoi_base(char *str, char *base);
 int	is_valid(char *base)
@@ -27,7 +28,6 @@ int	is_valid(char *base)
 	return (1);
 }
 
-
 void	ft_put(char *arr, char a)
 {
 	int	i;
@@ -39,14 +39,14 @@ void	ft_put(char *arr, char a)
 	arr[i] = '\0';
 }
 
-char	*strdup(char *str)
+char	*ft_strdup(char *str)
 {
 	int	i;
 	char	*dest;
 
 	i = 0;
 	dest = NULL;
-	if(!src)
+	if(!str)
 		return (NULL);
 	while (str[i] != '\0')
 		i++;
@@ -55,7 +55,10 @@ char	*strdup(char *str)
 		return (NULL);
 	i = 0;
 	while (str[i])
-		dest[i] = str[i++];
+	{
+		dest[i] = str[i];
+		i++;
+	}
 	dest[i] = '\0';
 	return (dest);
 }	
@@ -67,7 +70,6 @@ void	ft_to_base(int	nbr, char *base, char *arr)
 	if (nbr < 0)
 	{
 		ft_put(arr, '-');
-		//ft_putchar('-');
 		nbr *= -1;
 	}
 	base_len = 0;
@@ -78,11 +80,10 @@ void	ft_to_base(int	nbr, char *base, char *arr)
 		ft_to_base(nbr/ base_len, base, arr);
 	}
 	ft_put(arr, nbr % base_len + '0');
-	//ft_putchar(nbr % base_len + '0');
 }
 
 
-void	ft_convert_base(char *nbr, char *base_from, char *base_to)
+char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 {
 	char	str[12];
 	int	atoi_ret;
@@ -91,20 +92,20 @@ void	ft_convert_base(char *nbr, char *base_from, char *base_to)
 	if (is_valid(base_to) && is_valid(base_from))
 	{
 		atoi_ret = ft_atoi_base(nbr, base_from);
+		printf("atoi: %d\n", atoi_ret);
 		ft_to_base(atoi_ret, base_to, str);
-		//return ft_strdup(str);
-		ft_putstr(str);
+		return (ft_strdup(str));
 	}
 	else
-		ft_putstr("base_invalid");
+		return (NULL);
 }
-
-
-
-
-
 
 int	main(void)
 {
-	ft_convert_base("-- 23", "0123456789", "01234567");
+#include <stdio.h>
+	char *result = NULL;
+	result = ft_convert_base("-2309", "0123456789", "0123456789abcdef");
+	printf("return: %s", result);
+	if (result)
+		free(result);
 }
