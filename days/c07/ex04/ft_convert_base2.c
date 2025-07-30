@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_convert_base2.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: amerkht <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/30 16:51:03 by amerkht           #+#    #+#             */
+/*   Updated: 2025/07/30 16:53:01 by amerkht          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 int	in_string(char a, char *str)
 {
 	int	i;
@@ -5,44 +17,44 @@ int	in_string(char a, char *str)
 	i = 0;
 	while (str[i] != '\0')
 	{
-		if(str[i] == a)
+		if (str[i] == a)
 			return (i);
 		i++;
 	}
 	return (-1);
 }
 
-int     to_decimal(char *str, int len, char *base)
+int	to_decimal(char *str, int len, char *base)
 {
-        int             i;
-        long    re;
-        int             base_len;
-        int             pow;
-        int             j;
+	int			i;
+	long long	re;
+	int			base_len;
+	int			pow;
+	int			j;
 
-        i = 0;
-        re = 0;
-        base_len = 0;
-        while (base[base_len] != '\0')
-                base_len++;
-        while (in_string(str[i], base) != -1)
-        {
-                pow = 1;
-                j = 1;
-                while (j++ < len - i)
-                        pow *= base_len;
-                re += in_string(str[i], base) * pow;
-                i++;
-        }
-        return (re);
+	i = 0;
+	re = 0;
+	base_len = 0;
+	while (base[base_len] != '\0')
+		base_len++;
+	while (in_string(str[i], base) != -1)
+	{
+		pow = 1;
+		j = 1;
+		while (j++ < len - i)
+			pow *= base_len;
+		re += in_string(str[i], base) * pow;
+		i++;
+	}
+	return (re);
 }
-#include <stdio.h>
+
 int	ft_atoi_base(char *str, char *base)
 {
-	long long	 nb;
-	int		i;
-	int		len;
-	int		sign;
+	long long	nb;
+	int			i;
+	int			len;
+	int			sign;
 
 	i = 0;
 	nb = 0;
