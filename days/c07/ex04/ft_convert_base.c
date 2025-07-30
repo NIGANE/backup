@@ -103,9 +103,9 @@ char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 int	main(void)
 {
 #include <stdio.h>
-	char *result = NULL;
-	result = ft_convert_base("-2309", "0123456789", "0123456789abcdef");
+	char	*result;
+	result = ft_convert_base("-902767", "0123456789", "0123456789abcdef");
 	printf("return: %s", result);
-	if (result)
-		free(result);
+	//if (result)
+		//free(result);
 }

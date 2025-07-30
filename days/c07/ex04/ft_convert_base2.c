@@ -9,7 +9,7 @@ int	in_string(char a, char *str)
 			return (i);
 		i++;
 	}
-	return (0);
+	return (-1);
 }
 
 int     to_decimal(char *str, int len, char *base)
@@ -25,7 +25,7 @@ int     to_decimal(char *str, int len, char *base)
         base_len = 0;
         while (base[base_len] != '\0')
                 base_len++;
-        while (in_string(str[i], base))
+        while (in_string(str[i], base) != -1)
         {
                 pow = 1;
                 j = 1;
@@ -36,7 +36,7 @@ int     to_decimal(char *str, int len, char *base)
         }
         return (re);
 }
-
+#include <stdio.h>
 int	ft_atoi_base(char *str, char *base)
 {
 	long nb;
@@ -56,12 +56,11 @@ int	ft_atoi_base(char *str, char *base)
 			sign *= -1;
 		i++;
 	}
-	while (in_string(str[i + len], base))
+	while (in_string(str[i + len], base) != -1)
 		len++;
+	int	j = 0;
+	while (str[j] != '\0')
+		printf("in_string? %d\n", in_string(str[j++], base));
 	nb = to_decimal(str + i, len, base);
 	return (nb * sign);
 }
-
-int	main(void)
-{
-	printf
