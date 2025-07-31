@@ -6,7 +6,7 @@
 /*   By: amerkht <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 16:51:03 by amerkht           #+#    #+#             */
-/*   Updated: 2025/07/30 16:53:01 by amerkht          ###   ########.fr       */
+/*   Updated: 2025/07/31 11:48:34 by amerkht          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	in_string(char a, char *str)
 	return (-1);
 }
 
-int	to_decimal(char *str, int len, char *base)
+long long	to_decimal(char *str, int len, char *base)
 {
 	int			i;
 	long long	re;

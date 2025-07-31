@@ -6,7 +6,7 @@
 /*   By: amerkht <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 15:07:19 by amerkht           #+#    #+#             */
-/*   Updated: 2025/07/30 16:58:20 by amerkht          ###   ########.fr       */
+/*   Updated: 2025/07/31 11:45:11 by amerkht          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ void	ft_to_base(long long nbr, char *base, char *arr)
 
 char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 {
-	char		str[12];
+	char		str[40];
 	long long	atoi_ret;
 
 	str[0] = '\0';
