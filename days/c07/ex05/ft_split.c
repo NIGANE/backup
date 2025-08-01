@@ -6,7 +6,7 @@
 /*   By: amerkht <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 18:16:46 by amerkht           #+#    #+#             */
-/*   Updated: 2025/07/31 11:39:32 by amerkht          ###   ########.fr       */
+/*   Updated: 2025/08/01 10:45:15 by amerkht          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ int	count(char *str, char *charset)
 			while (in_string(str[i], charset))
 				i++;
 		}
+		if (str[i] == '\0')
+			break ;
 		while (!in_string(str[i], charset) && str[i] != '\0')
 			i++;
 		count++;
@@ -100,9 +102,12 @@ char	**ft_split(char *str, char *charset)
 	int		i;
 
 	i = 0;
+	if (!str || !charset)
+		return (NULL);
 	dest = malloc(sizeof(char *) * (count(str, charset) + 1));
 	if (!dest)
 		return (NULL);
+	printf("count: %d\n", count(str, charset));
 	dest[count(str, charset)] = NULL;
 	fill_arr(dest, str, charset);
 	return (dest);
