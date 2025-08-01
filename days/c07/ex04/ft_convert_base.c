@@ -6,7 +6,7 @@
 /*   By: amerkht <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 15:07:19 by amerkht           #+#    #+#             */
-/*   Updated: 2025/07/31 11:45:11 by amerkht          ###   ########.fr       */
+/*   Updated: 2025/08/01 09:22:49 by amerkht          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,9 @@ int	is_valid(char *base)
 	int	j;
 
 	i = 0;
-	while (base[i])
+	if (!base || base[i] == '\0')
+		return (0);
+	while (base[i] != '\0')
 	{
 		if (base[i] == '-' || base[i] == '+')
 			return (0);
@@ -98,7 +100,7 @@ char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 	long long	atoi_ret;
 
 	str[0] = '\0';
-	if (is_valid(base_to) && is_valid(base_from))
+	if (is_valid(base_to) && is_valid(base_from) && nbr)
 	{
 		atoi_ret = ft_atoi_base(nbr, base_from);
 		ft_to_base(atoi_ret, base_to, str);

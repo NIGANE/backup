@@ -6,13 +6,13 @@
 /*   By: amerkht <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 18:55:57 by amerkht           #+#    #+#             */
-/*   Updated: 2025/07/31 18:55:59 by amerkht          ###   ########.fr       */
+/*   Updated: 2025/08/01 10:17:34 by amerkht          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_ABS_H
 # define FT_ABS_H
 
-# define ABS(v) v > 0 ? v : -v
+# define ABS(Value) (Value >= 0) * (Value) + (Value < 0) * (-Value)
 
 #endif
