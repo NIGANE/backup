@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_range.c                                         :+:      :+:    :+:   */
+/*   ft_stock_str.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amerkht <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/30 17:03:08 by amerkht           #+#    #+#             */
-/*   Updated: 2025/08/01 21:21:44 by amerkht          ###   ########.fr       */
+/*   Created: 2025/08/01 21:54:36 by amerkht           #+#    #+#             */
+/*   Updated: 2025/08/01 21:56:28 by amerkht          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#ifndef FT_STOCK_STR_H
+# define FT_STOCK_STR_H
 
-int	*ft_range(int min, int max)
+typedef struct s_stock_str
 {
-	int	*range;
-	int	*buffer;
+	int		size;
+	char	*str;
+	char	*copy;
+}			t_stock_str;
 
-	if (min >= max)
-		return (0);
-	range = (int *) malloc(sizeof(int) * (max - min));
-	buffer = range;
-	while (min < max)
-		*buffer++ = min++;
-	return (range);
-}
+#endif

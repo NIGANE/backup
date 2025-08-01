@@ -6,7 +6,7 @@
 /*   By: amerkht <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 18:16:46 by amerkht           #+#    #+#             */
-/*   Updated: 2025/08/01 10:45:15 by amerkht          ###   ########.fr       */
+/*   Updated: 2025/08/01 21:21:02 by amerkht          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,25 +72,20 @@ void	fill_arr(char **dest, char *str, char *charset)
 	int	i;
 	int	j;
 	int	dest_index;
-	int	str_count;
 
 	i = 0;
 	dest_index = 0;
 	while (str[i] != '\0')
 	{
-		while (in_string(str[i], charset))
+		while (in_string(str[i], charset) && str[i] != '\0')
 			i++;
 		if (!in_string(str[i], charset) && str[i] != '\0')
 		{
-			str_count = 0;
 			j = 0;
 			while (!in_string(str[i + j], charset) && str[i + j] != '\0')
-			{
-				str_count++;
 				j++;
-			}
-			dest[dest_index] = malloc(sizeof(char) * (str_count + 1));
-			ft_strncpy(dest[dest_index++], str + i, str_count);
+			dest[dest_index] = malloc(sizeof(char) * (j + 1));
+			ft_strncpy(dest[dest_index++], str + i, j);
 		}
 		i = j + i;
 	}
@@ -100,15 +95,16 @@ char	**ft_split(char *str, char *charset)
 {
 	char	**dest;
 	int		i;
+	int		count_word;
 
 	i = 0;
 	if (!str || !charset)
 		return (NULL);
-	dest = malloc(sizeof(char *) * (count(str, charset) + 1));
+	count_word = count(str, charset);
+	dest = malloc(sizeof(char *) * (count_word + 1));
 	if (!dest)
 		return (NULL);
-	printf("count: %d\n", count(str, charset));
-	dest[count(str, charset)] = NULL;
+	dest[count_word] = NULL;
 	fill_arr(dest, str, charset);
 	return (dest);
 }
