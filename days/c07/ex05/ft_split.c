@@ -6,7 +6,7 @@
 /*   By: amerkht <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 18:16:46 by amerkht           #+#    #+#             */
-/*   Updated: 2025/08/01 21:21:02 by amerkht          ###   ########.fr       */
+/*   Updated: 2025/08/03 15:52:18 by amerkht          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int	in_string(char a, char *str)
 	int	i;
 
 	i = 0;
+	if (!str)
+		return (0);
 	while (str[i] != '\0')
 	{
 		if (str[i] == a)
@@ -33,6 +35,8 @@ int	count(char *str, char *charset)
 
 	i = 0;
 	count = 0;
+	if (!str || !charset)
+		return (0);
 	while (str[i])
 	{
 		if (in_string(str[i], charset))
@@ -54,6 +58,8 @@ char	*ft_strncpy(char *dest, char *src, unsigned int n)
 	unsigned int	i;
 
 	i = 0;
+	if (!dest || !src)
+		return (NULL);
 	while (src[i] != '\0' && i < n)
 	{
 		dest[i] = src[i];
@@ -75,6 +81,8 @@ void	fill_arr(char **dest, char *str, char *charset)
 
 	i = 0;
 	dest_index = 0;
+	if (!str || !charset)
+		return ;
 	while (str[i] != '\0')
 	{
 		while (in_string(str[i], charset) && str[i] != '\0')
@@ -85,6 +93,8 @@ void	fill_arr(char **dest, char *str, char *charset)
 			while (!in_string(str[i + j], charset) && str[i + j] != '\0')
 				j++;
 			dest[dest_index] = malloc(sizeof(char) * (j + 1));
+			if (!dest[dest_index])
+				return ;
 			ft_strncpy(dest[dest_index++], str + i, j);
 		}
 		i = j + i;
