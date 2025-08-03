@@ -1,9 +1,10 @@
 
 NAME = libft.a
 SRC =   src/ft_putchar.c src/ft_swap.c src/ft_putstr.c src/ft_strlen.c src/ft_strcmp.c
+SRC_DIR = src
 OBJ =  $(SRC:.c=.o)
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -I includes
 RM = rm -f 
 
 
@@ -12,17 +13,15 @@ RM = rm -f
 all:$(NAME)
 
 $(NAME): $(OBJ)
-	echo "=> making the $(NAME) library"
 	ar rcs $(NAME) $(OBJ)
+	echo "- $(OBJ)"
 
-%.o: %.c
-	@echo "=> compiling"
+$(SRC_DIR)/%.o: $(SRC_DIR)/%.c
 	$(CC) $(CFLAGS) -c $< -o $@
-	@echo "=> end compiling"
-
+src/%.o: src/%.c
+	$(CC) $(CFLAGS) -c $< -o $@
 clean:
-	@echo "clean obj files"
 	rm -f $(OBJ)
 fclean: clean
-	@echo "cleaning $(NAME) file"
 	rm -f $(NAME)
+re: fclean all
