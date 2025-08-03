@@ -6,7 +6,7 @@
 /*   By: amerkht <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/01 22:36:33 by amerkht           #+#    #+#             */
-/*   Updated: 2025/08/01 22:38:10 by amerkht          ###   ########.fr       */
+/*   Updated: 2025/08/03 12:46:06 by amerkht          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int	ft_strlen(char *str)
 {
 	int	i;
 
+	if (!str)
+		return (0);
 	i = 0;
 	while (str[i])
 		i++;
@@ -28,7 +30,11 @@ char	*ft_strdup(char *str)
 	int		i;
 	char	*dest;
 
+	if (!str)
+		return (NULL);
 	dest = malloc(sizeof(char) * (ft_strlen(str) + 1));
+	if (!dest)
+		return (NULL);
 	i = 0;
 	while (str[i])
 	{
