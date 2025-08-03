@@ -6,7 +6,7 @@
 /*   By: amerkht <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/01 22:36:33 by amerkht           #+#    #+#             */
-/*   Updated: 2025/08/03 12:46:06 by amerkht          ###   ########.fr       */
+/*   Updated: 2025/08/03 14:47:08 by amerkht          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	fill(t_stock_str *arr, char **av, int ac)
 	while (i < ac)
 	{
 		arr[i].size = ft_strlen(av[i]);
-		arr[i].str = ft_strdup(av[i]);
+		arr[i].str = av[i];
 		arr[i].copy = ft_strdup(av[i]);
 		i++;
 	}

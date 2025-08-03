@@ -6,7 +6,7 @@
 /*   By: amerkht <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/02 10:16:34 by amerkht           #+#    #+#             */
-/*   Updated: 2025/08/02 10:17:55 by amerkht          ###   ########.fr       */
+/*   Updated: 2025/08/03 14:52:03 by amerkht          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ void	ft_show_tab(struct s_stock_str *par)
 	int	i;
 
 	i = 0;
+	if (!par)
+		return ;
 	while (par[i].str != NULL)
 	{
 		ft_putstr(par[i].str);
