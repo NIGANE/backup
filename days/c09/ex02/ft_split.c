@@ -6,7 +6,7 @@
 /*   By: amerkht <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 18:16:46 by amerkht           #+#    #+#             */
-/*   Updated: 2025/08/03 15:52:18 by amerkht          ###   ########.fr       */
+/*   Updated: 2025/08/04 11:09:44 by amerkht          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	in_string(char c, char *str)
 	return (0);
 }
 
-int	strs_l(char *str, char *charset)
+int	count_chars(char *str, char *charset)
 {
 	int	part;
 	int	count;
@@ -53,7 +53,9 @@ char	*ft_strdup(char *src, char *charset)
 	buffer = src;
 	while (*buffer && !in_string(*buffer++, charset))
 		length++;
-	dest = (char *) malloc(sizeof(*src) * length);
+	dest = (char *) malloc(sizeof(char) * (length + 1));
+	if (!dest)
+		return (NULL);
 	buffer = dest;
 	while (*src && length-- > 0)
 		*buffer++ = *src++;
@@ -67,7 +69,9 @@ char	**ft_split(char *str, char *charset)
 	char	**tmp;
 	int		part;
 
-	strs = (char **) malloc(strs_l(str, charset) * sizeof(*strs) + 1);
+	strs = (char **) malloc(count_chars(str, charset) * sizeof(char *) + 1);
+	if (!strs)
+		return (NULL);
 	tmp = strs;
 	part = 1;
 	while (*str)

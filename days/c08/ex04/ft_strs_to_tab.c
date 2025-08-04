@@ -6,7 +6,7 @@
 /*   By: amerkht <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/01 22:36:33 by amerkht           #+#    #+#             */
-/*   Updated: 2025/08/03 14:47:08 by amerkht          ###   ########.fr       */
+/*   Updated: 2025/08/04 11:22:53 by amerkht          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ char	*ft_strdup(char *str, int size)
 	if (!dest)
 		return (NULL);
 	i = 0;
-	while (str[i])
+	while (str[i] && i < size)
 	{
 		dest[i] = str[i];
 		i++;
