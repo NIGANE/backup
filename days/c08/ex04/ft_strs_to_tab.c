@@ -45,23 +45,10 @@ char	*ft_strdup(char *str)
 	return (dest);
 }
 
-void	fill(t_stock_str *arr, char **av, int ac)
-{
-	int	i;
-
-	i = 0;
-	while (i < ac)
-	{
-		arr[i].size = ft_strlen(av[i]);
-		arr[i].str = av[i];
-		arr[i].copy = ft_strdup(av[i]);
-		i++;
-	}
-}
-
 struct s_stock_str	*ft_strs_to_tab(int ac, char **av)
 {
 	t_stock_str	*linked;
+	int			i;
 
 	linked = NULL;
 	if (!av || ac <= 0)
@@ -70,6 +57,13 @@ struct s_stock_str	*ft_strs_to_tab(int ac, char **av)
 	if (!linked)
 		return (NULL);
 	linked[ac].str = 0;
-	fill(linked, av, ac);
+	i = 0;
+	while (i < ac)
+	{
+		arr[i].size = ft_strlen(av[i]);
+		arr[i].str = ft_strdup(av[i]);
+                arr[i].copy = ft_strdup(av[i]);
+		i++;
+	}
 	return (linked);
 }
