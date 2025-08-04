@@ -14,7 +14,6 @@ all:$(NAME)
 
 $(NAME): $(OBJ)
 	ar rcs $(NAME) $(OBJ)
-	echo "- $(OBJ)"
 
 $(SRC_DIR)/%.o: $(SRC_DIR)/%.c
 	$(CC) $(CFLAGS) -c $< -o $@

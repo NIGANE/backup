@@ -25,14 +25,14 @@ int	ft_strlen(char *str)
 	return (i);
 }
 
-char	*ft_strdup(char *str)
+char	*ft_strdup(char *str, int size)
 {
 	int		i;
 	char	*dest;
 
 	if (!str)
 		return (NULL);
-	dest = malloc(sizeof(char) * (ft_strlen(str) + 1));
+	dest = malloc(sizeof(char) * (size + 1));
 	if (!dest)
 		return (NULL);
 	i = 0;
@@ -60,10 +60,13 @@ struct s_stock_str	*ft_strs_to_tab(int ac, char **av)
 	i = 0;
 	while (i < ac)
 	{
-		arr[i].size = ft_strlen(av[i]);
-		arr[i].str = ft_strdup(av[i]);
-                arr[i].copy = ft_strdup(av[i]);
+		linked[i].size = ft_strlen(av[i]);
+		linked[i].str = av[i];
+		linked[i].copy = ft_strdup(av[i], linked[i].size);
 		i++;
 	}
+	linked[i].str = 0;
+	linked[i].size = 0;
+	linked[i].copy = 0;
 	return (linked);
 }
