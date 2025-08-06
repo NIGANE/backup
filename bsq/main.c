@@ -1,17 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_display_file.c                                  :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amerkht <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/06 11:07:29 by amerkht           #+#    #+#             */
-/*   Updated: 2025/08/06 11:15:42 by amerkht          ###   ########.fr       */
+/*   Created: 2025/08/06 12:21:10 by amerkht           #+#    #+#             */
+/*   Updated: 2025/08/06 17:57:26 by amerkht          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
 #include <fcntl.h>
 #include "help.h"
+#include <stdio.h>
 
 void	ft_putstr(char *str)
 {
@@ -19,36 +20,46 @@ void	ft_putstr(char *str)
 		write(1, str++, 1);
 }
 
-void	read_file(char	*file_name)
+char	*read_line(int fd, char *dest)
 {
-	char	bf[MAX_VAL];
-	int		fd;
 	int		readed;
+	char    bf[2];
+
+	readed = read(fd, bf, 1);
+	while (readed > 0 && bf[0] != '\n')
+        {
+                bf[readed] = '\0';
+                ft_putstr(bf);
+                ft_strlcat(dest, bf, MAX_SIZE);
+                readed = read(fd, bf, 1);
+        }
+	return (dest);
+}
+
+void	read_file(int fd, char	*file_name)
+{
+	char	fn[MAX_SIZE];
+
 
 	fd = open(file_name, O_RDONLY);
 	if (fd == -1)
-	{
-		ft_putstr(READ_FILE_ERR);
 		return ;
-	}
-	readed = read(fd, bf, MAX_VAL);
-	while (readed > 0)
-	{
-		bf[readed] = '\0';
-		ft_putstr(bf);
-		readed = read(fd, bf, MAX_VAL);
-	}
+	read_line(fd, fn);
+	ft_putstr(dest);
 	close(fd);
 }
 
 int	main(int ac, char **av)
 {
-	if (ac < 2)
-		ft_putstr(FILE_MISSING_ERR);
-	else if (ac > 2)
-		ft_putstr(MANY_ARG_ERR);
-	else
+	char    fn[MAX_SIZE];
+	int             fd;
+	char	*arr[10];
+
+	if (ac == 2)
 	{
-		read_file(av[1]);
+		fd = open(av[1], O_RDONLY);
+		if (fd == -1)
+			return 1;
+		read_fil(fd, arr);
 	}
 }
