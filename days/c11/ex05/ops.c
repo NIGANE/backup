@@ -6,7 +6,7 @@
 /*   By: amerkht <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/07 00:51:48 by amerkht           #+#    #+#             */
-/*   Updated: 2025/08/07 05:11:03 by amerkht          ###   ########.fr       */
+/*   Updated: 2025/08/07 14:59:10 by amerkht          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	sub(int a, int b)
 void	mod(int a, int b)
 {
 	if (b == 0)
-		ft_putstr("Stop : modulo by zero\n");
+		ft_putstr("Stop : modulo by zero");
 	else
 		ft_putnbr(a % b);
 }
@@ -33,7 +33,7 @@ void	mod(int a, int b)
 void	div(int a, int b)
 {
 	if (b == 0)
-		ft_putstr("Stop : division by zero\n");
+		ft_putstr("Stop : division by zero");
 	else
 		ft_putnbr(a / b);
 }
