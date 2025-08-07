@@ -1,44 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ops.c                                              :+:      :+:    :+:   */
+/*   ft_advanced_sort_string_tab.c                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amerkht <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/07 00:51:48 by amerkht           #+#    #+#             */
-/*   Updated: 2025/08/07 05:11:03 by amerkht          ###   ########.fr       */
+/*   Created: 2025/08/07 06:00:42 by amerkht           #+#    #+#             */
+/*   Updated: 2025/08/07 06:35:41 by amerkht          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "ft.h"
-
-void	add(int a, int b)
+void	ft_swap(char **s1, char **s2)
 {
-	ft_putnbr(a + b);
+	char	*temp;
+
+	temp = *s1;
+	*s1 = *s2;
+	*s2 = temp;
 }
 
-void	sub(int a, int b)
+void	ft_advanced_sort_string_tab(char **tab, int (*cmp)(char *, char *))
 {
-	ft_putnbr(a - b);
-}
+	int	i;
+	int	j;
 
-void	mod(int a, int b)
-{
-	if (b == 0)
-		ft_putstr("Stop : modulo by zero\n");
-	else
-		ft_putnbr(a % b);
-}
-
-void	div(int a, int b)
-{
-	if (b == 0)
-		ft_putstr("Stop : division by zero\n");
-	else
-		ft_putnbr(a / b);
-}
-
-void	multp(int a, int b)
-{
-	ft_putnbr(a * b);
+	i = 0;
+	while (tab[i])
+	{
+		j = i + 1;
+		while (tab[j])
+		{
+			if (cmp(tab[i], tab[j]) > 0)
+				ft_swap(&tab[i], &tab[j]);
+			j++;
+		}
+		i++;
+	}
 }

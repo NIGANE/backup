@@ -6,7 +6,7 @@
 /*   By: amerkht <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/07 01:13:10 by amerkht           #+#    #+#             */
-/*   Updated: 2025/08/07 01:26:51 by amerkht          ###   ########.fr       */
+/*   Updated: 2025/08/07 04:29:50 by amerkht          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft.h"
@@ -70,11 +70,11 @@ int	ft_atoi(char *str)
 	return (re * sign);
 }
 
-int	is_string(char a, char *str)
+int	in_string(char a, char *str)
 {
 	while (*str)
 	{
-		if ( a == *str)
+		if (a == *str)
 			return (1);
 		str++;
 	}

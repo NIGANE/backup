@@ -6,31 +6,40 @@
 /*   By: amerkht <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/07 00:51:48 by amerkht           #+#    #+#             */
-/*   Updated: 2025/08/07 01:35:44 by amerkht          ###   ########.fr       */
+/*   Updated: 2025/08/07 05:09:38 by amerkht          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft.h"
-#include <stdio.h>
 
-void	print_op(char *a, char *b, void (*f)(int, int))
+void	print_op(int a, int b, void (*f)(int, int))
 {
-	f(ft_atoi(a), ft_atoi(b));
+	f(a, b);
 }
 
 int	main(int ac, char **av)
 {
+	int	a;
+	int	b;
 
-	char	*op = "+-/*%";
 	if (ac == 4)
 	{
-		if (in_string(av[2], op))
+		if (in_string(av[2][0], "/+-*%"))
 		{
-			if (av[2] == '+')
-				print_op(av[1], av[3], &add);
+			a = ft_atoi(av[1]);
+			b = ft_atoi(av[3]);
+			if (av[2][0] == '+')
+				print_op(a, b, &add);
+			else if (av[2][0] == '-')
+				print_op(a, b, &sub);
+			else if (av[2][0] == '*')
+				print_op(a, b, &multp);
+			else if (av[2][0] == '/')
+				print_op(a, b, &div);
+			else if (av[2][0] == '%')
+				print_op(a, b, &mod);
 		}
 		else
 			ft_putnbr(0);
 	}
-	
 }
