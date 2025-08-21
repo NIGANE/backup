@@ -4,6 +4,6 @@
 typedef struct s_list
 {
 	void	*data;
-	t_list	*next;
-}
+	struct s_list	*next;
+}	t_list;
 #endif
